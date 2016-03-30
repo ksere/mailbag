@@ -99,8 +99,8 @@ add_action( 'wp_enqueue_scripts', 'mailbag_load_styles' );
  */
 function mailbag_load_frontend_scripts() {
 	// ajaxChimp
-	wp_enqueue_script( 'mailbag_ajaxChimp', plugin_dir_url(__FILE__) . 'includes/js/jquery.ajaxchimp.js', '2.2.1', true );
-	wp_enqueue_script( 'mailbag-front-js', plugin_dir_url(__FILE__) . 'includes/js/mailbag.js', '2.2.1', true );
+	wp_enqueue_script( 'mailbag_ajaxChimp', plugin_dir_url(__FILE__) . 'includes/js/jquery.ajaxchimp.js', array('jquery'), '2.2.1', true );
+	wp_enqueue_script( 'mailbag-front-js', plugin_dir_url(__FILE__) . 'includes/js/mailbag.js', array('jquery'), '2.2.1', true );
 
 	$formURL = mailbag_get_ajax_url();
 
@@ -463,7 +463,7 @@ function mailbag_get_ajax_url() {
 		$safeurl= $list_data['data'][0]['subscribe_url_long'];
 		$safeurl = str_replace('http://', 'https://', $safeurl );
 
-		return $safeurl;
+		return apply_filters( 'mailbag_mc_ajax_url', $safeurl );
 
 	}
 	return false;
