@@ -1,6 +1,6 @@
 # mailbag
 
-**This is a fork of the mailbag plugin by ArrayHQ**
+**This is a fork of the [mailbag](https://wordpress.org/plugins/mailbag/) plugin by [ArrayHQ](https://profiles.wordpress.org/arrayhq/)**
 
 Dead Simple Email Subscriptions
 
